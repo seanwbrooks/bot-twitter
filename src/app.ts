@@ -19,6 +19,6 @@ app.get('/', (req: any, res: Response) => {
     res.status(200).send("Twitter bot endpoint");
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT, '0.0.0.0', () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
