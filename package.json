@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "\"Twitter bot for retweeting hashtags\"",
   "main": "dist/app.js",
+  "engines": {
+    "node": "v11.5.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "export NODE_ENV=dev && nodemon --exec babel-node dist/app.js",

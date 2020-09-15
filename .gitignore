@@ -48,3 +48,8 @@ jspm_packages/
 # Generated output
 dist
 
+# Heroku
+npm-debug.log
+.DS_Store
+/*.env
+
