@@ -13,8 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req: any, res: any) => {
-    let data = twitter();
-    return res.status(200).json(data);
+    setInterval(twitter, 1000);
 });
 
 app.listen(process.env.PORT || 3000, '0.0.0.0', () => {
