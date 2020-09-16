@@ -4,7 +4,6 @@ const client = require('twit');
 const config = require('config');
 
 let process = () => {
-    console.log("running");
     let date = new Date();
     let T = new client({
         consumer_key:         config.get('twitter.key'),
@@ -15,13 +14,15 @@ let process = () => {
         strictSSL:            true,     // optional - requires SSL certificates to be valid.
       });
       
-    T.get('search/tweets', { q: `#everythingseanb`, count: 5 }, function(err : any, data : any, response : any) {
-        for (let i = 0; i < data['statuses'].length; i++) {
-            let tweet_id : string = data['statuses'][i]['id_str'];
-            if (data['statuses'][i]['retweeted'] !== true) {
-                T.post('statuses/retweet/:id', { id: tweet_id }, function(err : any, data : any, response : any) {
-                    console.log(data);
-                });
+    T.get('search/tweets', { q: `#loveyourself`, count: 5 }, function(err : any, data : any, response : any) {
+        if (data['statuses']) {
+            for (let i = 0; i < data['statuses'].length; i++) {
+                let tweet_id : string = data['statuses'][i]['id_str'];
+                if (data['statuses'][i]['retweeted'] !== true) {
+                    T.post('statuses/retweet/:id', { id: tweet_id }, function(err : any, data : any, response : any) {
+                        console.log(data);
+                    });
+                }
             }
         }
     });

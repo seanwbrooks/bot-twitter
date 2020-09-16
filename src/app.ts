@@ -12,8 +12,12 @@ app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', (req: any, res: any) => {
-    setInterval(twitter, 1000);
+// Listener for retweets
+setInterval(twitter, 1000);
+
+// page server
+app.get('/', (req: any, res: Response) => {
+    res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.listen(process.env.PORT || 3000, '0.0.0.0', () => {
