@@ -3,13 +3,13 @@
 const client = require('twit');
 const config = require('config');
 
-let process = () => {
+let twitterApi = () => {
     let date = new Date();
     let T = new client({
-        consumer_key:         config.get('twitter.key'),
-        consumer_secret:      config.get('twitter.secret'),
-        access_token:         config.get('twitter.token'),
-        access_token_secret:  config.get('twitter.token_secret'),
+        consumer_key:         process.env.KEY,
+        consumer_secret:      process.env.SECRET,
+        access_token:         process.env.TOKEN,
+        access_token_secret:  process.env.TOKEN_SECRET,
         timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
         strictSSL:            true,     // optional - requires SSL certificates to be valid.
       });
@@ -29,7 +29,7 @@ let process = () => {
       
 };
 
-export default process;
+export default twitterApi;
  
 // const twitterApi = () => {
 //     console.log("Twitter api pull for hashtag");
