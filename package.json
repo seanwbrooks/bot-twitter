@@ -25,8 +25,10 @@
   "dependencies": {
     "async": "^3.2.0",
     "compression": "^1.7.4",
+    "config": "^3.3.1",
     "express": "^4.17.1",
-    "lodash": "^4.17.20"
+    "lodash": "^4.17.20",
+    "twit": "^2.2.11"
   },
   "devDependencies": {
     "@babel/cli": "^7.11.6",
