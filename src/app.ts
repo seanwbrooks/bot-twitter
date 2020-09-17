@@ -17,7 +17,7 @@ setInterval(twitter, 1000);
 
 // page server
 app.get('/', (req: any, res: Response) => {
-    res.sendFile(path.join(__dirname + '/index.html'));
+    res.sendFile(path.join(__dirname + '../../index.html'));
 });
 
 app.listen(process.env.PORT || 3000, '0.0.0.0', () => {
