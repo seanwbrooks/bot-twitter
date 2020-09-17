@@ -19,7 +19,7 @@ let twitterApi = () => {
             for (let i = 0; i < data['statuses'].length; i++) {
                 let tweet_id : string = data['statuses'][i]['id_str'];
                 if (data['statuses'][i]['retweeted'] !== true) {
-                    T.post('favorites/create/:id', { id: tweet_id }, function(err : any, data : any, response : any) {
+                    T.post('favorites/create', { id: tweet_id }, function(err : any, data : any, response : any) {
                         console.log(data);
                     });
                 }
