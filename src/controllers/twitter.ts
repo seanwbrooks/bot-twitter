@@ -1,7 +1,7 @@
 "use strict";
 
 const client = require('twit');
-const config = require('config');
+const config = require('dotenv').config();
 
 let twitterApi = () => {
     let date = new Date();

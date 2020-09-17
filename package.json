@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "export NODE_ENV=production && node dist/app.js",
+    "start": "export NODE_ENV=dev && node dist/app.js",
     "build": "tsc --resolveJsonModule",
     "serve": "npm run build && npm run start"
   },
@@ -42,6 +42,7 @@
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",
     "babel-loader": "^8.1.0",
+    "dotenv": "^8.2.0",
     "eslint": "^7.9.0",
     "nodemon": "^2.0.4",
     "typescript": "^4.0.2"
