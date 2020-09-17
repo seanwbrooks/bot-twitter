@@ -1,10 +1,8 @@
 "use strict";
 
 const client = require('twit');
-const config = require('dotenv').config();
 
 let twitterApi = () => {
-    let date = new Date();
     let T = new client({
         consumer_key:         process.env.KEY,
         consumer_secret:      process.env.SECRET,
@@ -30,9 +28,4 @@ let twitterApi = () => {
 };
 
 export default twitterApi;
- 
-// const twitterApi = () => {
-//     console.log("Twitter api pull for hashtag");
-// }
-// setInterval(twitterApi, 10000);
 
