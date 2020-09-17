@@ -14,12 +14,12 @@ let twitterApi = () => {
         strictSSL:            true,     // optional - requires SSL certificates to be valid.
       });
       
-    T.get('search/tweets', { q: `#loveyourself`, count: 5 }, function(err : any, data : any, response : any) {
+    T.get('search/tweets', { q: `#financialindependence`, count: 5 }, function(err : any, data : any, response : any) {
         if (data['statuses']) {
             for (let i = 0; i < data['statuses'].length; i++) {
                 let tweet_id : string = data['statuses'][i]['id_str'];
                 if (data['statuses'][i]['retweeted'] !== true) {
-                    T.post('statuses/retweet/:id', { id: tweet_id }, function(err : any, data : any, response : any) {
+                    T.post('favorites/create/:id', { id: tweet_id }, function(err : any, data : any, response : any) {
                         console.log(data);
                     });
                 }
