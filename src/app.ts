@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Listener for retweets
-setInterval(twitter, 1000);
+setInterval(twitter, 2000);
 
 // page server
 app.get('/', (req: any, res: Response) => {
