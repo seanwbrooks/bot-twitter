@@ -10,13 +10,19 @@ app.set('port', process.env.PORT || 3000);
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('finance'));
+app.use(express.static('index'));
 
 // Listener for retweets
-setInterval(twitter, 2000);
+setInterval(twitter, 1500);
 
 // page server
 app.get('/', (req: any, res: Response) => {
     res.sendFile(path.join(__dirname + '../../index.html'));
+});
+
+app.get('/finance', (req: any, res: Response) => {
+    res.sendFile(path.join(__dirname + '../../finance.html'));
 });
 
 app.listen(process.env.PORT, '0.0.0.0', () => {

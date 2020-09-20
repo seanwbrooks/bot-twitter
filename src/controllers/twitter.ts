@@ -1,6 +1,9 @@
 "use strict";
 
 const client = require('twit');
+import { IError } from '../models/error';
+import { IStatus } from 'status';
+import { isAudience } from '../utils/audience';
 
 let twitterApi = () => {
     let T = new client({
@@ -11,13 +14,19 @@ let twitterApi = () => {
         timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
         strictSSL:            true,     // optional - requires SSL certificates to be valid.
       });
+
+    // search for financial independence
+    // var stream = T.stream('statuses/filter', { track: '#financialindependence', lang: 'en' });
+    // stream.on('tweets', (tweets : any) => {
+    //    console.log(tweets);
+    // });
       
-    T.get('search/tweets', { q: `#financialindependence`, count: 5 }, function(err : any, data : any, response : any) {
-        if (data['statuses']) {
-            for (let i = 0; i < data['statuses'].length; i++) {
-                let tweet_id : string = data['statuses'][i]['id_str'];
-                if (data['statuses'][i]['retweeted'] !== true) {
-                    T.post('favorites/create', { id: tweet_id }, function(err : any, data : any, response : any) {
+    T.get('search/tweets', { q: `#financialindependence`, count: 5 }, function(err : Array<IError>, data : any, response : any) {
+        let statuses : Array<IStatus> = data['statuses'];
+        if (statuses) {
+            for (let i = 0; i < statuses.length; i++) {
+                if (isAudience(statuses[i]) && !statuses[i].favorited) {
+                    T.post('favorites/create', { id: statuses[i].id_str }, function(err : any, data : any, response : any) {
                         console.log(data);
                     });
                 }
