@@ -22,7 +22,7 @@ app.get('/', (req: any, res: Response) => {
 });
 
 app.get('/finance', (req: any, res: Response) => {
-    res.sendFile(path.join(__dirname + '../../src/views/finance.html'));
+    res.sendFile(path.join(__dirname + '../../src/views/personal_finance.html'));
 });
 
 app.get('/house_hacking', (req: any, res: Response) => {
