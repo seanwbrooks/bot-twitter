@@ -21,12 +21,11 @@ let twitterApi = () => {
     //    console.log(tweets);
     // });
       
-    T.get('search/tweets', { q: `#financialindependence`, count: 5 }, function(err : Array<IError>, data : any, response : any) {
-        let statuses : Array<IStatus> = data['statuses'];
-        if (statuses) {
-            for (let i = 0; i < statuses.length; i++) {
-                if (isAudience(statuses[i]) && !statuses[i].favorited) {
-                    T.post('favorites/create', { id: statuses[i].id_str }, function(err : any, data : any, response : any) {
+    T.get('search/tweets', { q: `#financialindependence`, count: 10 }, function(err : Array<IError>, data : any, response : any) {
+        if (data['statuses']) {
+            for (let i = 0; i < data['statuses'].length; i++) {
+                if (isAudience(data['statuses'][i]) && !data['statuses'][i].favorited) {
+                    T.post('favorites/create', { id: data['statuses'][i].id_str }, function(err : any, data : any, response : any) {
                         console.log(data);
                     });
                 }
