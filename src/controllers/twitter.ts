@@ -2,8 +2,8 @@
 
 const client = require('twit');
 import { IError } from '../models/error';
-import { IStatus } from 'status';
 import { isAudience } from '../utils/audience';
+import { finance_time, javascript_time } from '../utils/timers';
 
 let twitterApi = () => {
     let T = new client({
@@ -15,23 +15,35 @@ let twitterApi = () => {
         strictSSL:            true,     // optional - requires SSL certificates to be valid.
       });
 
-    // search for financial independence
-    // var stream = T.stream('statuses/filter', { track: '#financialindependence', lang: 'en' });
-    // stream.on('tweets', (tweets : any) => {
-    //    console.log(tweets);
-    // });
+    const time = new Date();
       
-    T.get('search/tweets', { q: `#financialindependence`, count: 10 }, function(err : Array<IError>, data : any, response : any) {
-        if (data['statuses']) {
-            for (let i = 0; i < data['statuses'].length; i++) {
-                if (isAudience(data['statuses'][i]) && !data['statuses'][i].favorited) {
-                    T.post('favorites/create', { id: data['statuses'][i].id_str }, function(err : any, data : any, response : any) {
-                        console.log(data);
-                    });
+    if (finance_time(time.getUTCHours(), time.getUTCMinutes()))
+    {
+        T.get('search/tweets', { q: `#financialindependence`, count: 10 }, function(err : Array<IError>, data : any, response : any) {
+            if (data['statuses']) {
+                for (let i = 0; i < data['statuses'].length; i++) {
+                    if (isAudience(data['statuses'][i]) && !data['statuses'][i].favorited) {
+                        T.post('favorites/create', { id: data['statuses'][i].id_str }, function(err : any, data : any, response : any) {
+                            console.log(data);
+                        });
+                    }
                 }
             }
-        }
-    });
+        });
+    }
+    if (javascript_time(time.getUTCHours(), time.getUTCMinutes())) {
+        T.get('search/tweets', { q: "#javascript", count: 10 }, function(err : Array<IError>, data : any, response : any) {
+            if (data['statuses']) {
+                for (let i = 0; i < data['statuses'].length; i++) {
+                    if (isAudience(data['statuses'][i]) && !data['statuses'][i].favorited) {
+                        T.post('favorites/create', { id: data['statuses'][i].id_str }, function(err : any, data : any, response : any) {
+                            console.log(data);
+                        });
+                    }
+                }
+            }
+        });
+    }
       
 };
 

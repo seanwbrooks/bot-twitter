@@ -14,8 +14,7 @@ app.use(express.static('finance'));
 app.use(express.static('index'));
 
 // Listener for retweets
-if (false)
-    setInterval(twitter, 2000);
+setInterval(twitter, 1000);
 
 // page server
 app.get('/', (req: any, res: Response) => {
