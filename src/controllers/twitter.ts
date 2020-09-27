@@ -23,11 +23,11 @@ let twitterApi = () => {
         console.log(data);
         if (data['statuses']) {
             for (let i = 0; i < data['statuses'].length; i++) {
-                if (isAudience(data['statuses'][i]) && !data['statuses'][i].favorited) {
+                //if (isAudience(data['statuses'][i]) && !data['statuses'][i].favorited) {
                     T.post('favorites/create', { id: data['statuses'][i].id_str }, function(err : any, data : any, response : any) {
                         console.log(data);
                     });
-                }
+                //}
             }
         }
     });
