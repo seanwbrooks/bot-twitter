@@ -1,7 +1,10 @@
-export const finance_time = (hr : number, min : number) => {
-    return (hr >= 22 && hr < 23 && min > 55 && min < 56)
-}
-
-export const javascript_time = (hr : number, min : number) => {
-    return (hr >= 23 && hr < 24 && min > 0 && min < 3)
+export const query = (hr : number) => {
+    if (hr >= 0 && hr < 6)
+        return "#financialindependence";
+    if (hr >= 6 && hr < 12)
+        return "#javascript";
+    if (hr >= 12 && hr < 18)
+        return "personal finance";
+    if (hr >= 18 && hr < 24)
+        return "#realestate";
 }
