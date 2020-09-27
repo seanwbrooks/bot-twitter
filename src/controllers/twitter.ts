@@ -16,18 +16,15 @@ let twitterApi = () => {
       });
 
     const hour = new Date().getUTCHours();
-    console.log(hour);
-    console.log(query(hour));
 
     T.get('search/tweets', { q: query(hour), count: 10 }, function(err : Array<IError>, data : any, response : any) {
-        console.log(data);
         if (data['statuses']) {
             for (let i = 0; i < data['statuses'].length; i++) {
-                //if (isAudience(data['statuses'][i]) && !data['statuses'][i].favorited) {
+                if (!data['statuses'][i].favorited) {
                     T.post('favorites/create', { id: data['statuses'][i].id_str }, function(err : any, data : any, response : any) {
                         console.log(data);
                     });
-                //}
+                }
             }
         }
     });
