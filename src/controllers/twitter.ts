@@ -20,7 +20,7 @@ let twitterApi = () => {
     console.log(query(hour));
 
     T.get('search/tweets', { q: query(hour), count: 10 }, function(err : Array<IError>, data : any, response : any) {
-        console.log(data['statuses']);
+        console.log(data);
         if (data['statuses']) {
             for (let i = 0; i < data['statuses'].length; i++) {
                 if (isAudience(data['statuses'][i]) && !data['statuses'][i].favorited) {
