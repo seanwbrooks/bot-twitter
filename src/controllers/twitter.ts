@@ -16,9 +16,10 @@ let twitterApi = () => {
       });
 
     const hour = new Date().getUTCHours();
+    console.log(hour);
+    console.log(query(hour));
 
     T.get('search/tweets', { q: query(hour), count: 10 }, function(err : Array<IError>, data : any, response : any) {
-        console.log("queried: " + query(hour));
         console.log(data['statuses']);
         if (data['statuses']) {
             for (let i = 0; i < data['statuses'].length; i++) {
