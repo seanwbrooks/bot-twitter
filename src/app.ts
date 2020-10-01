@@ -16,7 +16,6 @@ app.use(express.static('index'));
 // Listener for retweets
 setInterval(twitter, 10000);
 
-
 // page server
 app.get('/', (req: any, res: Response) => {
     res.sendFile(path.join(__dirname + '../../index.html'));
