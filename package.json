@@ -4,7 +4,8 @@
   "description": "\"Twitter bot for retweeting hashtags\"",
   "main": "dist/app.js",
   "engines": {
-    "node": "v11.5.0"
+    "node": "v11.5.0",
+    "npm": "6.1.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
