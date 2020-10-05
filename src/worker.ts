@@ -1,3 +1,5 @@
 import twitter from './controllers/twitter';
 
-twitter();
+export const worker = () => {
+    twitter();
+}
