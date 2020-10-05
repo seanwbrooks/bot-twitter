@@ -19,12 +19,14 @@ const twitterApi = () => {
         const hour = new Date().getUTCHours();
         const topic = query(hour);
         
+        console.log("seaching for " + topic);
         T.get('search/tweets', { q: topic, count: 100 }, function(err : Array<IError>, data : any, response : any) {
             if (data['statuses']) {
                 for (let i = 0; i < data['statuses'].length; i++) {
+                    console.log(data['statuses'][i].text);
                     if (!data['statuses'][i].possibly_sensitive) {
                         T.post('favorites/create', { id: data['statuses'][i].id_str }, function(err : any, data : any, response : any) {
-                            console.log(data);
+                            console.log("success");
                         });
                     }
                 }

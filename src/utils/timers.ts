@@ -7,4 +7,6 @@ export const query = (hr : number) => {
         return "personal finance";
     if (hr >= 18 && hr < 24)
         return "real estate";
+    else 
+        return "codeNewbie";
 }
