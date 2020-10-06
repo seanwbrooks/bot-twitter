@@ -18,9 +18,9 @@ const twitterApi = () => {
     
         const hour = new Date().getUTCHours();
         const topic = query(hour);
-
-        T.get('search/tweets', { q: ['real estate', 'financial independence', 'javascript', 'personal finance', 'code newbie'], count: 100, language: 'en' }, function(err : Array<IError>, data : any) {
-            console.log(data);
+        
+        console.log("seaching for " + topic);
+        T.get('search/tweets', { q: topic, count: 100, language: 'en' }, function(err : Array<IError>, data : any) {
             if (data['statuses']) {
                 for (let i = 0; i < data['statuses'].length; i++) {
                     if (!data['statuses'][i].possibly_sensitive) {
