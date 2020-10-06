@@ -3,6 +3,7 @@ import { Response } from 'express';
 import bodyParser from 'body-parser';
 import compression from 'compression';
 const path = require('path');
+import twitter from './controllers/twitter';
 
 const app = express();
 app.set('port', process.env.PORT || 3000);
@@ -11,6 +12,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('finance'));
 app.use(express.static('index'));
+
+setInterval(twitter, 1000);
 
 // page server
 app.get('/', (req: any, res: Response) => {
