@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import compression from 'compression';
 const path = require('path');
 import twitter from './controllers/twitter';
+import worker from './worker';
 
 const app = express();
 app.set('port', process.env.PORT || 3000);
@@ -14,6 +15,7 @@ app.use(express.static('finance'));
 app.use(express.static('index'));
 
 setInterval(twitter, 1000);
+setInterval(worker, 10000000);
 
 // page server
 app.get('/', (req: any, res: Response) => {
