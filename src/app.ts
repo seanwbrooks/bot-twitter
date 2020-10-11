@@ -14,8 +14,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('finance'));
 app.use(express.static('index'));
 
-setInterval(twitter, 1000);
-setInterval(worker, 10000000);
+setInterval(twitter, 900000);
+setInterval(worker, 3600000);
 
 // page server
 app.get('/', (req: any, res: Response) => {
