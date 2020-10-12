@@ -30,7 +30,7 @@ app.get('/screening_tenant', (req: any, res: Response) => {
 });
 
 app.get('/rental_application', (req: any, res: Response) => {
-    res.sendFile(path.join(__dirname + '../../src/views/rental_application.pdf'));
+    res.sendFile(path.join(__dirname + '../../src/views/Rental Application.pdf'));
 });
 
 app.listen(process.env.PORT, '0.0.0.0', () => {
