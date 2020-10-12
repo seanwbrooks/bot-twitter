@@ -25,6 +25,14 @@ app.get('/house_hacking', (req: any, res: Response) => {
     res.sendFile(path.join(__dirname + '../../src/views/house_hacking.html'));
 });
 
+app.get('/screening_tenant', (req: any, res: Response) => {
+    res.sendFile(path.join(__dirname + '../../src/views/screening_tenant.html'));
+});
+
+app.get('/rental_application', (req: any, res: Response) => {
+    res.sendFile(path.join(__dirname + '../../src/views/rental_application.pdf'));
+});
+
 app.listen(process.env.PORT, '0.0.0.0', () => {
     console.log(`Example app listening at http://localhost:${process.env.PORT}`);
 });
