@@ -11,6 +11,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('finance'));
 app.use(express.static('index'));
+app.use('/images', express.static(__dirname + '../../src/assets/images'));
+app.use('/css', express.static(__dirname + '../../src/assets/css'));
 
 // page server
 app.get('/', (req: any, res: Response) => {
