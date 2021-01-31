@@ -1,5 +1,6 @@
 .body {
     font-size: 48px;
+    margin-bottom: 20px;
 }
 .link {
     text-decoration: none;
@@ -14,8 +15,12 @@
 .title {
     position: absolute;
     top: 4rem;
-    left: 4rem;
-    font-size: 48px;
+    left: 2rem;
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 24px;
 }
 
 .banner {
@@ -36,4 +41,20 @@
     height: 100%;
     max-width: 1440px;
     max-height: 810px;
+}
+
+@media only screen and (min-width: 500px) {
+
+}
+
+@media only screen and (min-width: 767px) {
+
+}
+
+@media only screen and (min-width: 952px) {
+
+}
+
+@media only screen and (min-width: 1440px) {
+
 }
