@@ -35,6 +35,10 @@ app.get('/rental_application', (req: any, res: Response) => {
     res.sendFile(path.join(__dirname + '../../src/views/Rental Application.pdf'));
 });
 
+app.get('/first_house', (req: any, res: Response) => {
+    res.sendFile(path.join(__dirname + '../../src/views/first_house.html'));
+});
+
 app.listen(process.env.PORT, '0.0.0.0', () => {
     console.log(`Example app listening at http://localhost:${process.env.PORT}`);
 });
