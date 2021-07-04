@@ -1,58 +1,8 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Bot Love</title>
-        <!-- SEO Optimizations -->
-        <meta charset="UTF-8">
-        <meta name="description" content="Bot Love blog, YouTube, and more">
-        <meta name="keywords" content="Personal Finance, House Hacking, Sean, Brooks">
-        <meta name="author" content="Sean Brooks">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Style -->
-        <base href="/" />
-        <link rel="stylesheet" type="text/css" src="/src/assets/css/main.css" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <!-- Favicon -->
-        <link rel="robo-icon" href="/src/assets/images/favicon.ico" type="image/ico" sizes="20x20">
-        <!-- Global Site Tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106621269-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments)};
-            gtag('js', new Date());
-            // TODO: Pages
-            gtag('house_hacking', 'UA-106621269-1');
-        </script>
-        <!-- Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    </head>
+    <%- include('../partials/head') -%>
     <body>
-        <nav class="navbar navbar-expand navbar-light">
-            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button> -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/finance">Personal Finance</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" target="blank" href="https://www.youtube.com/channel/UCCU4jOan2QJl5idcbiZLfiw">YouTube</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/first_house">First Time Homebuyers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/screening_tenant">Screening Tenant</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <%- include('../partials/nav') -%>
         <div class="container">
             What is house hacking?<br/><br/>
 

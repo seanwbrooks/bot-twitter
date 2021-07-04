@@ -9,34 +9,35 @@ app.set('port', process.env.PORT || 3000);
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('finance'));
-app.use(express.static('index'));
 app.use('/images', express.static(__dirname + '../../src/assets/images'));
 app.use('/css', express.static(__dirname + '../../src/assets/css'));
+app.set('/views', path.join(__dirname, '../../src/views'));
+app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '../../src/public'));
 
 // page server
 app.get('/', (req: any, res: Response) => {
-    res.sendFile(path.join(__dirname + '../../index.html'));
+    res.render(path.join(__dirname + '../../src/views/pages/home'));
 });
 
 app.get('/finance', (req: any, res: Response) => {
-    res.sendFile(path.join(__dirname + '../../src/views/personal_finance.html'));
+    res.render(path.join(__dirname + '../../src/views/pages/personalFinance'));
 });
 
 app.get('/house_hacking', (req: any, res: Response) => {
-    res.sendFile(path.join(__dirname + '../../src/views/house_hacking.html'));
+    res.render(path.join(__dirname + '../../src/views/pages/houseHacking'));
 });
 
 app.get('/screening_tenant', (req: any, res: Response) => {
-    res.sendFile(path.join(__dirname + '../../src/views/screening_tenant.html'));
+    res.render(path.join(__dirname + '../../src/views/pages/screeningTenants'));
 });
 
 app.get('/rental_application', (req: any, res: Response) => {
-    res.sendFile(path.join(__dirname + '../../src/views/Rental Application.pdf'));
+    res.render(path.join(__dirname + '../../src/views/Rental Application.pdf'));
 });
 
 app.get('/first_house', (req: any, res: Response) => {
-    res.sendFile(path.join(__dirname + '../../src/views/first_house.html'));
+    res.render(path.join(__dirname + '../../src/views/pages/firstHouse'));
 });
 
 app.listen(process.env.PORT, '0.0.0.0', () => {
